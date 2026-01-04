@@ -1,22 +1,86 @@
-# emotion-based-music
-<h1>Explaination Video</h1>
-<a href="https://youtu.be/uDzLxos0lNU">Emotion based music | ai | deep learning project | with code | ml project</a>
-<a href="https://youtu.be/uDzLxos0lNU"><img src="emotion.jpg"/></a>
+![Emotion Based Music Player](emotion.png)
 
-<h1>Description</h1>
-Welcome to new project emotion based music built by using mediapipe and keras. also opencv and streamlit is used to create a webapp. for capturing the webcam in the browser i used streamlit-webrtc module. I explained all of the code in this video which is required to create a webapp for emotion based music recommender.
-<br><br>
-In this video I used live emoji project code to create a model which could classify different emotions so I already explained the code for that which is over here
-<br>Data Collection script : https://youtu.be/ZxZSGRdTLtE
-<br>Data Training and Inference script : https://youtu.be/He_oZ-MnIrU
-<br>code for live emoji : https://github.com/Pawandeep-prog/liveEmoji
+# 🎵 Emotion-Based Music Player
 
-<h1>Connect with me</h1>
-If you have any queries regarding any of the topic I discussed in this video feel free to talk to e using below links:<br>
-facebook : https://m.facebook.com/proogramminghub<br>
-instagram : @programming_hut<br>
-twitter : https://twitter.com/programming_hut<br>
-github : https://github.com/Pawandeep-prog<br>
-discord : https://discord.gg/G5Cunyg<br>
-linkedin : https://www.linkedin.com/in/programminghut<br>
-youtube : https://www.youtube.com/c/programminghutofficial<br>
+An **AI-powered Emotion-Based Music Player** that detects human emotions in real time using a webcam and recommends music accordingly.  
+This project combines **Deep Learning**, **Computer Vision**, and **Web Application Development**.
+
+---
+
+## 📌 Project Description
+
+The **Emotion-Based Music Player** analyzes facial expressions captured through a webcam and classifies emotions using a deep learning model.  
+Based on the detected emotion, the system recommends or plays suitable music.
+
+The project demonstrates practical use of:
+- Facial landmark detection
+- Emotion classification
+- Real-time video processing
+- AI-based recommendation logic
+
+---
+
+## 🧠 Emotions Detected
+
+- Happy  
+- Sad  
+- Calm  
+- Energetic  
+
+Each emotion maps to a different music mood.
+
+---
+
+## 🛠️ Technologies Used
+
+- Python  
+- Deep Learning (CNN)  
+- Keras / TensorFlow  
+- MediaPipe  
+- OpenCV  
+- Streamlit  
+- streamlit-webrtc  
+
+---
+
+## 🌐 Web Application
+
+- Built using **Streamlit**
+- Real-time webcam access through browser
+- Live emotion detection
+- Instant music recommendation based on emotion
+
+---
+
+## ⚙️ How It Works
+
+1. Webcam captures live video feed  
+2. Facial landmarks extracted using MediaPipe  
+3. Deep learning model classifies emotion  
+4. Music recommended based on detected emotion  
+
+---
+
+## 📂 Project Highlights
+
+- Real-time emotion recognition  
+- AI + ML based system  
+- Interactive web interface  
+- Beginner-friendly deep learning project  
+- Suitable for **college mini / major projects**
+
+---
+
+## 📌 Use Cases
+
+- Smart music recommendation systems  
+- Mood detection applications  
+- Human–computer interaction  
+- AI & ML learning projects  
+
+---
+
+## ⭐ Final Note
+
+This project is created for **learning, academic, and demonstration purposes**.  
+If you find this useful, consider giving the repository a ⭐.
