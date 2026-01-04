@@ -7,11 +7,13 @@ from music import get_music
 
 st.set_page_config(page_title="Emotion Based Music Player")
 
+# Load model and labels
 model = load_model("model.h5")
 labels = np.load("labels.npy", allow_pickle=True)
 
+# MediaPipe setup
 mp_face_mesh = mp.solutions.face_mesh
-face_mesh = mp_face_mesh.FaceMesh()
+face_mesh = mp_face_mesh.FaceMesh(static_image_mode=False)
 
 st.title("🎵 Emotion-Based Music Player")
 st.image("emotion.png", use_column_width=True)
@@ -35,6 +37,7 @@ def extract_landmarks(frame):
 while run:
     ret, frame = cap.read()
     if not ret:
+        st.error("Camera not accessible")
         break
 
     landmarks = extract_landmarks(frame)
@@ -43,10 +46,7 @@ while run:
         emotion = labels[np.argmax(prediction)]
 
         st.success(f"Detected Emotion: {emotion}")
-
-        song = get_music(emotion)
-        if song:
-            st.audio(song)
+        st.info(get_music(emotion))
 
     frame_window.image(frame, channels="BGR")
 
