@@ -1,9 +1,7 @@
 import streamlit as st
 import numpy as np
 import random
-from tensorflow.keras.models import load_model
 from PIL import Image
-import cv2
 
 st.set_page_config(page_title="Emotion Based Music Player")
 
@@ -20,3 +18,4 @@ if img is not None:
 
     emotion = random.choice(labels)
     st.success(f"Detected Emotion: {emotion}")
+    st.info("🎶 Music recommendation based on detected emotion")
