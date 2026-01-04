@@ -1,4 +1,6 @@
 def get_youtube_embed(emotion):
+    emotion = emotion.lower().strip()  # 🔑 FIX
+
     embeds = {
         "sad": "https://www.youtube.com/embed/pvppSBtG68c",
         "happy": "https://www.youtube.com/embed/pIvf9bOPXIw",
@@ -6,4 +8,5 @@ def get_youtube_embed(emotion):
         "neutral": "https://www.youtube.com/embed/pIvf9bOPXIw",
         "surprise": "https://www.youtube.com/embed/csx88cqa3y4",
     }
+
     return embeds.get(emotion)
