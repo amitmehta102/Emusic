@@ -11,7 +11,13 @@ model = load_model("model.h5")
 labels = np.load("labels.npy", allow_pickle=True)
 
 st.title("🎵 Emotion-Based Music Player")
-st.image("emotion.png", use_column_width=True)
+import os
+
+if os.path.exists("emotion.png"):
+    st.image("emotion.png", use_column_width=True)
+else:
+    st.warning("emotion.png not found")
+
 
 run = st.checkbox("Start Camera")
 frame_window = st.image([])
