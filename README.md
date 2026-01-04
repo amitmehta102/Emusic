@@ -1,4 +1,4 @@
-![Emotion Based Music Player](emotion.png)
+![Emotion Based Music Player](emotion.jpg)
 
 # 🎵 Emotion-Based Music Player
 
