@@ -6,7 +6,7 @@ from PIL import Image
 st.set_page_config(page_title="Emotion Based Music Player")
 
 st.title("🎵 Emotion-Based Music Player")
-st.write("Cloud demo version")
+st.write("Cloud demo version (UI workflow)")
 
 labels = np.load("labels.npy", allow_pickle=True)
 
