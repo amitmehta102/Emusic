@@ -1,63 +1,34 @@
 import streamlit as st
 import numpy as np
-import cv2
-import mediapipe as mp
 from tensorflow.keras.models import load_model
+from PIL import Image
+import cv2
 
 st.set_page_config(page_title="Emotion Based Music Player")
+
+st.title("🎵 Emotion-Based Music Player")
+st.write("Capture an image to detect emotion")
 
 # Load model and labels
 model = load_model("model.h5")
 labels = np.load("labels.npy", allow_pickle=True)
 
-st.title("🎵 Emotion-Based Music Player")
-import os
+img = st.camera_input("Take a picture")
 
-if os.path.exists("emotion.png"):
-    st.image("emotion.png", use_column_width=True)
-else:
-    st.warning("emotion.png not found")
+def preprocess(image):
+    image = np.array(image)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    image = cv2.resize(image, (48, 48))
+    image = image / 255.0
+    image = image.reshape(1, 48, 48, 1)
+    return image
 
+if img is not None:
+    image = Image.open(img)
+    st.image(image, caption="Captured Image")
 
-run = st.checkbox("Start Camera")
-frame_window = st.image([])
+    processed = preprocess(image)
+    pred = model.predict(processed)
+    emotion = labels[np.argmax(pred)]
 
-cap = cv2.VideoCapture(0)
-
-mp_face_mesh = mp.solutions.face_mesh
-
-def extract_landmarks(frame):
-    with mp_face_mesh.FaceMesh(
-        static_image_mode=False,
-        max_num_faces=1,
-        refine_landmarks=True,
-        min_detection_confidence=0.5,
-        min_tracking_confidence=0.5
-    ) as face_mesh:
-
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        result = face_mesh.process(rgb)
-
-        if result.multi_face_landmarks:
-            landmarks = []
-            for lm in result.multi_face_landmarks[0].landmark:
-                landmarks.extend([lm.x, lm.y])
-            return np.array(landmarks).reshape(1, -1)
-
-    return None
-
-while run:
-    ret, frame = cap.read()
-    if not ret:
-        st.error("Camera not accessible")
-        break
-
-    landmarks = extract_landmarks(frame)
-    if landmarks is not None:
-        prediction = model.predict(landmarks)
-        emotion = labels[np.argmax(prediction)]
-        st.success(f"Detected Emotion: {emotion}")
-
-    frame_window.image(frame, channels="BGR")
-
-cap.release()
+    st.success(f"Detected Emotion: {emotion}")
