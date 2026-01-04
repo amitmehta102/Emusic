@@ -1,9 +1,9 @@
-def get_music(emotion):
-    music_map = {
-        "happy": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-        "sad": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-        "angry": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-        "neutral": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-        "surprise": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+def get_youtube_embed(emotion):
+    embeds = {
+        "sad": "https://www.youtube.com/embed/pvppSBtG68c",
+        "happy": "https://www.youtube.com/embed/pIvf9bOPXIw",
+        "angry": "https://www.youtube.com/embed/d9r_c0Tg_q4",
+        "neutral": "https://www.youtube.com/embed/pIvf9bOPXIw",
+        "surprise": "https://www.youtube.com/embed/csx88cqa3y4",
     }
-    return music_map.get(emotion)
+    return embeds.get(emotion)
